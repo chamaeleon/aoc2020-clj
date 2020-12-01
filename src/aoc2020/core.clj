@@ -16,8 +16,7 @@
   (let [start-ms (inst-ms (java.util.Date.))
         result (.toString (aoc-fn))
         end-ms (inst-ms (java.util.Date.))]
-    (format "%s %15s [%dms]" (prefix @counter) result (- end-ms start-ms)))
-  )
+    (format "%s %15s [%dms]" (prefix @counter) result (- end-ms start-ms))))
 
 (defn run []
   (doseq [problem problems]
