@@ -1,9 +1,10 @@
 (ns aoc2020.core
-  (:require [aoc2020 day01])
+  (:require [aoc2020 day01 day02])
   (:gen-class))
 
 (def problems
-  [aoc2020.day01/part1 aoc2020.day01/part2])
+  [aoc2020.day01/part1 aoc2020.day01/part2
+   aoc2020.day02/part1 aoc2020.day02/part2])
 
 (def counter (atom 0))
 
