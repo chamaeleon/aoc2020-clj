@@ -25,9 +25,7 @@
 (defn validate-part2 [[pos1 pos2 letter password]]
   (let [ch1 (nth password (dec pos1))
         ch2 (nth password (dec pos2))]
-    (and (not= ch1 ch2)
-         (or (= letter ch1)
-             (= letter ch2)))))
+    (not= (= letter ch1) (= letter ch2))))
 
 (defn part2 []
   (let [passwords (load-data "day02.txt")]
