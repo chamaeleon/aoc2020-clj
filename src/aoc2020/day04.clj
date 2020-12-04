@@ -7,8 +7,8 @@
 (def all-keys #{:byr :iyr :eyr :hgt :hcl :ecl :pid :cid})
 (def eye-colors #{"amb" "blu" "brn" "gry" "grn" "hzl" "oth"})
 
-(defn make-passport [entry]
-  (let [fields (map #(rest (re-find #"^([^:]+):(.+)$" %)) entry)]
+(defn make-passport [passport-data]
+  (let [fields (map #(rest (re-find #"^([^:]+):(.+)$" %)) passport-data)]
     (zipmap (map keyword (map first fields)) (map second fields))))
 
 (defn load-data [filename]
