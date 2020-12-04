@@ -24,9 +24,9 @@
   (let [data (load-data "day04.txt")]
     (count (filter valid-passport-part1 data))))
 
-(defn valid-year [byr low high]
-  (let [byr (edn/read-string byr)]
-    (and (<= low byr high))))
+(defn valid-year [year low high]
+  (let [year (edn/read-string year)]
+    (<= low year high)))
 
 (defn valid-height [hgt]
   (let [[height system] (rest (re-find #"^([0-9]+)(cm|in)$" hgt))
