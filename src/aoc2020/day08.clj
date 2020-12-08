@@ -46,8 +46,10 @@
   [(get fix instruction instruction) arg])
 
 (defn instruction-fix-seq [instructions]
-  (for [offset (range (count instructions))]
-    (assoc instructions offset (fix-instruction (get instructions offset)))))
+  (for [offset (range (count instructions))
+        :let [instruction (get instructions offset)]
+        :when (get fix (first instruction))]
+    (assoc instructions offset (fix-instruction instruction))))
 
 (defn part2 []
   (let [instructions (load-data "day08.txt")
