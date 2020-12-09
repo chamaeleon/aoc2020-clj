@@ -30,10 +30,9 @@
     (cond (nil? data) numbers
           (= (+ sum n) result) (conj numbers n)
           (< (+ sum n) result) (recur (conj numbers n) (+ sum n) tail)
-          :else (let [dropped (first numbers)]
-                  (recur (vec (drop 1 numbers))
-                         (- sum dropped)
-                         data)))))
+          :else (recur (subvec numbers 1)
+                       (- sum (first numbers))
+                       data))))
 
 (defn part2 []
   (let [data (load-data "day09.txt")
