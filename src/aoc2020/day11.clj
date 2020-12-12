@@ -1,6 +1,6 @@
 (ns aoc2020.day11
   (:require [clojure.java.io :refer [reader resource]])
-  (:require [aoc2020.utils :refer [get-cell set-cell]])
+  (:require [aoc2020.utils :refer [get-cell]])
   (:gen-class))
 
 (def cell-type {\. :floor, \L :empty, \# :occupied})
