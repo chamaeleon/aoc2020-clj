@@ -33,16 +33,17 @@
 (defn generate-updates [grid threshold dist]
   (let [[xsize ysize] (get-dimensions grid)]
     (->> (for [y (range ysize)
-               x (range xsize)
-               :when (not= :floor (get-cell grid x y))]
-           (let [occupied-count (get-adjacent-occupied-count grid x y dist)
-                 current (get-cell grid x y)]
-             (cond (and (= 0 occupied-count) (= :empty current)) [x y :occupied]
-                   (and (>= occupied-count threshold) (= :occupied current)) [x y :empty]
-                   :else [x y current]))))))
+               x (range xsize)]
+           (let [current (get-cell grid x y)]
+             (if (= current :floor)
+               :floor
+               (let [occupied-count (get-adjacent-occupied-count grid x y dist)]
+                 (cond (and (= 0 occupied-count) (= :empty current)) :occupied
+                       (and (>= occupied-count threshold) (= :occupied current)) :empty
+                       :else current))))))))
 
 (defn apply-updates [grid updates]
-  (mapv vec (partition (count (first grid)) (map #(nth % 2) updates))))
+  (mapv vec (partition (count (first grid)) updates)))
 
 (defn update-until-equal [grid threshold dist]
   (loop [grid grid]
