@@ -33,7 +33,8 @@
 (defn generate-updates [grid threshold dist]
   (let [[xsize ysize] (get-dimensions grid)]
     (->> (for [y (range ysize)
-               x (range xsize)]
+               x (range xsize)
+               :when (not= :floor (get-cell grid x y))]
            (let [occupied-count (get-adjacent-occupied-count grid x y dist)
                  current (get-cell grid x y)]
              (cond (and (= 0 occupied-count) (= :empty current)) [x y :occupied]
