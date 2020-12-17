@@ -5,6 +5,7 @@
             :url "https://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [org.clojure/math.combinatorics "0.1.6"]]
+  :jvm-opts ["-Xmx12g"]
   :main ^:skip-aot aoc2020.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all
