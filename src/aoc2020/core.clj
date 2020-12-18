@@ -2,7 +2,7 @@
   (:require [clojure.java.io :refer [resource]])
   (:require [aoc2020 day01 day02 day03 day04 day05 day06 day07 day08])
   (:require [aoc2020 day09 day10 day11 day12 day13 day14 day15 day16])
-  (:require [aoc2020 day17])
+  (:require [aoc2020 day17 day18])
   (:gen-class))
 
 (def problems
@@ -22,7 +22,8 @@
    aoc2020.day14/part1 aoc2020.day14/part2
    aoc2020.day15/part1 aoc2020.day15/part2
    aoc2020.day16/part1 aoc2020.day16/part2
-   aoc2020.day17/part1 aoc2020.day17/part2])
+   aoc2020.day17/part1 aoc2020.day17/part2
+   aoc2020.day18/part1 aoc2020.day18/part2])
 
 (def counter (atom 0))
 
